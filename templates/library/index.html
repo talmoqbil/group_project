@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+	<head> 
+		<title>Library</title>
+	</head>
+	<body>
+		<h1>This is the home page</h1>
+		<div>
+			Welcome! <br />
+			<strong>{{ boldmessage }}</strong><br />
+		</div>
+		<div>
+			<a href="/library/about/">About</a><br />
+			
+			<img src="{% static 'images/book.jpg' %}"alt="First Book" />
+			
+		</div>
+	</body>
+</html>
