@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 
-
 <html>
 
     <head>
@@ -13,7 +12,8 @@
         crossorigin="anonymous">
 
         <!-- The link tag below links the html file to the CSS file-->
-		<link rel="stylesheet" type="text/css" href="{% static 'CSS/Homepage.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'CSS/WishList.css' %}" />
+	
         
         <title>
             Waterstones
@@ -39,7 +39,7 @@
             </div>
 
             <div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
-                <a href="http://127.0.0.1:8000/library/register/">
+                <a href="http://127.0.0.1:8000/library/wishlist/">
                     <button id = "navLogInButton">Register</button>
                 </a>
                 <a href="http://127.0.0.1:8000/library/login/">
@@ -78,7 +78,7 @@
             </div>
 
             <div class = "col-md-2 col-sm-2 col-xs-2">
-                <a href = "http://127.0.0.1:8000/library/children/">
+                <a href = "http://127.0.0.1:8000/library/childrens/">
                     <p class = "headerItems">
                         CHILDREN'S
                     </p>
@@ -109,115 +109,109 @@
         </header>
 
         <body>
+            <div id = "bookList">
 
-            <div>
-				<img src="{% static 'images/P1.jpg' %}"
-                id = "homePic">
-            </div>
+                <h1>
+                    Wish List
+                </h1>
 
-            <div class = "genreType">
-                <p class = "genreTypeTitle">
-                    Fiction
-                </p>
-            </div>
+                <div class = "bookItem">
 
-            <div class = "row" id = "genreOne">
+                    <div>
+                        <img 
+                        src = "{% static 'images/F3.png' %}">
+                    </div>
+                    
+                    <div class = "bookItemText">
+                        <h4>THE GIRL WITH THE LOUDING VOICE</h4>
+                        <h5>Author: Abi Dare</h5>
+                        <h5>Genres: Fiction</h5>
+                        <h5>Rating: </h5>
+                        <h5>Available in: 28 days</h5>
+                    </div>
 
-        
-                    <img src = "{% static 'images/P2.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-                
-                    <img src = "{% static 'images/P3.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
-                    <img src = "{% static 'images/P4.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                </div>
+
+                <div class = "bookItem">
+
+                    <div>
+                        <img 
+                        src = "{% static 'images/F4.png' %}">
+                    </div>
+                    
+                    <div class = "bookItemText">
+                        <h4>WOMAN ON THE EDGE OF TIME</h4>
+                        <h5>Author: Marge Piercy</h5>
+                        <h5>Genres: Fiction</h5>
+                        <h5>Rating: </h5>
+                        <h5>Available in: 2 days</h5>
+                    </div>
+
+                </div>
+
+                <div class = "bookItem">
+
+                    <div>
+                        <img 
+                        src = "{% static 'images/P15.jpg' %}">
+                    </div>
+                    
+                    <div class = "bookItemText">
+                        <h4>THE GIRL WITH THE LOUDING VOICE</h4>
+                        <h5>Author: Victoria Hislop</h5>
+                        <h5>Genres: Fiction</h5>
+                        <h5>Rating: </h5>
+                        <h5>Available in: 10 days</h5>
+                    </div>
+
+                </div>
+
+                <div class = "bookItem">
+
+                    <div>
+                        <img 
+                        src = "{% static 'images/F7.png' %}">
+                    </div>
+                    
+                    <div class = "bookItemText">
+                        <h4>THE GIRL WITH THE LOUDING VOICE</h4>
+                        <h5>Author: Kim Hughes</h5>
+                        <h5>Genres: Fiction</h5>
+                        <h5>Rating: </h5>
+                        <h5>Available in: 14 days</h5>
+                    </div>
+
+                </div>
+
+                <div class = "genreType">
+                    <p class = "genreTypeTitle">
+                        Oher Similar Books
+                    </p>
+                </div>
+    
+                <div class = "row" id = "genreOne">
+    
             
-                    <img src = "{% static 'images/P5.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-
-
-            </div>
-
-
-
-            <div class = "genreType">
-                <p class = "genreTypeTitle">
-                    Non-Fiction
-                </p>
-            </div>
-
-            <div class = "row" id = "genreOne">
-
-        
-                    <img src = "{% static 'images/P6.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                        <img src = "{% static 'images/P2.jpg' %}"
+                        class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                    
+                        <img src = "{% static 'images/P3.jpg' %}"
+                        class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+               
+                        <img src = "{% static 'images/P4.jpg' %}"
+                        class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
                 
-                    <img src = "{% static 'images/P7.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
-                    <img src = "{% static 'images/P8.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-            
-                    <img src = "{% static 'images/P9.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                        <img src = "{% static 'images/P5.jpg' %}"
+                        class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+    
+    
+                </div>
 
 
             </div>
 
 
-
-            <div class = "genreType">
-                <p class = "genreTypeTitle">
-                    Children's
-                </p>
             </div>
-
-            <div class = "row" id = "genreOne">
-
-        
-                    <img src = "{% static 'images/P10.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-                
-                    <img src = "{% static 'images/P11.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
-                    <img src = "{% static 'images/P12.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-            
-                    <img src = "{% static 'images/P13.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-
-
-            </div>
-
-
-
-            <div class = "genreType">
-                <p class = "genreTypeTitle">
-                    Our Best Picks
-                </p>
-            </div>
-
-            <div class = "row" id = "genreOne">
-
-        
-                    <img src = "{% static 'images/P14.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-                
-                    <img src = "{% static 'images/P15.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
-                    <img src = "{% static 'images/P16.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-            
-                    <img src = "{% static 'images/P17.jpg' %}"
-                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-
-
-            </div>
-
-
         </body>
 
         <footer>
@@ -230,7 +224,9 @@
 
                 <p id = "footerItem"
                 class = "col-md-2 col-sm-2 col-xs-2">
-                About Us
+                <a href = "http://127.0.0.1:8000/library/about/">
+                    About Us
+                </a>
                 </p>
 
                 <p id = "footerItem"
@@ -251,12 +247,12 @@
             </div>
             </footer>        
         </footer>
-
-
-
-
-
     </div>
+
+
+
+
+
 
 
 

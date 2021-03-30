@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('library/Fiction/', views.Fiction, name='Fiction'),
     path('library/', include('library.urls')),
     # The above maps any URLs starting with library/ to be handled by library.
     path('admin/', admin.site.urls),

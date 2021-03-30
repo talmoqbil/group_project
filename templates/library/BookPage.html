@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+
+    <head>
+
+        <!-- The link tag below adds bootstrap--> 
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+        crossorigin="anonymous">
+
+        <!-- The link tag below links the html file to the CSS file-->
+		<link rel="stylesheet" type="text/css" href="{% static 'CSS/BookPage.css' %}" />
+		
+       
+        <title>
+            Book Title
+        </title>
+
+    </head>
+
+
+    <div id = "bigDiv">
+
+        <header class = "row" id = "topHeader">
+
+            <!-- This is the code for the first row of content. 
+           The classes for the below three divs split the screen
+           in to three equal pieces of four columns each using bootstrap-->
+           <div class = "col-md-4 col-sm-4 col-xs-4">
+           </div>
+
+           <div class = "col-md-4 col-sm-4 col-xs-4">
+               <h4 id = "heading">
+                    Glasgow Library
+               </h4>
+           </div>
+
+           <div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
+               <a href="http://127.0.0.1:8000/library/register/">
+                   <button id = "navLogInButton">Register</button>
+               </a>
+               <a href="http://127.0.0.1:8000/library/login/">
+                   <button id = "navRegisterButton">Log In</button>
+               </a>
+           </div>
+
+       </header>
+
+       <hr id = "divider">
+       <!-- The header for bestsellers and search etc -->
+       <header class = "row" id = "bottomHeader">
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/">
+                   <p class = "headerItems">
+                       BESTSELLERS
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/library/fiction/">
+                   <p class = "headerItems">
+                       FICTION
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/library/nonfiction/">
+                   <p class = "headerItems">
+                       NON-FICTION
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/library/childrens/">
+                   <p class = "headerItems">
+                       CHILDREN'S
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <input type="text" placeholder="Search..">
+           </div>
+
+           <div class = "col-md-1 col-sm-1 col-xs-1">
+               <a href="http://127.0.0.1:8000/library/reservations/">
+                   <button id = "reservations">
+                       Reservations
+                   </button>
+               </a>
+           </div>
+
+           <div class = "col-md-1 col-sm-1 col-xs-1">
+               <a href="http://127.0.0.1:8000/library/wishlist/">
+                   <button id = "wishList">
+                       Wishlist
+                   </button>
+               </a>
+           </div>
+
+
+       </header>
+
+       
+
+
+    <body>
+
+        <div class = "row" id = "book">
+
+            <div class = "col-md-6 col-sm-6 col-xs-6">
+                <img src = "{% static 'images/F2.png' %}" id = "bookPic">
+            </div>
+
+            <div class = "col-md-6 col-sm-6 col-xs-6" id = "book2">
+                <h1 class = "bookDesc">The Alchemist</h1>
+                <h2 class = "bookDesc">Author: Paulo Coelho</h2>
+                <h2 class = "bookDesc">Genres: Fiction</h2>
+                <h2 class = "bookDesc">Rating</h2>
+                <h2 class = "bookDesc">Copies Available: 5</h2>
+                <a href="">
+                    <button id = "reserve">
+                        Reserve
+                    </button>
+                </a>
+
+                <a href="">
+                    <button id = "wish">
+                        Wishlist
+                    </button>
+                </a>
+
+
+
+            </div>
+
+        </div>
+
+           
+
+
+
+
+
+
+        <div class = "genreType">
+            <p class = "genreTypeTitle">
+                Other Similar Books
+            </p>
+        </div>
+
+        <div class = "row" id = "genreOne">
+
+    
+                <img src = "{% static 'images/P2.jpg' %}"
+                class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            
+                <img src = "{% static 'images/P3.jpg' %}"
+                class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+       
+                <img src = "{% static 'images/P2.jpg' %}"
+                class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+        
+                <img src = "{% static 'images/P5.jpg' %}"
+                class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+
+
+        </div>
+
+
+        <div class = "genreType">
+            <p class = "genreTypeTitle">
+                Reviews
+            </p>
+        </div>
+
+        <div id = "reviews" class = "row" >
+            <div class = "col-md-8 col-sm-8 col-xs-8" class = "reviewItem">
+                <div>
+                    <h3>
+                        Fahd Fayed
+                    </h3>
+                    <p>
+                        I loved this!!. The analogical storyline is both profound and captivating. The beautiful story flows effortlessly and I could not put it down, reading it in one sitting. This will be a gift for friends and those I love who are searching for their destiny :)
+                    </p>
+                </div>
+            </div>
+
+            <div class = "col-md-8 col-sm-8 col-xs-8" class = "reviewItem">
+                <div>
+                    <h3>
+                        Fadi Chahine
+                    </h3>
+                    <p>
+                        Buy it, this is an amazing book. So good i read it all within two days, just couldn't put it down.
+                    </p>
+                </div>
+            </div>
+
+            <div class = "col-md-8 col-sm-8 col-xs-8" class = "reviewItem">
+                <div>
+                    <h3>
+                        Ryan McGetrick
+                    </h3>
+                    <p>
+                        This book is very inspiring and should be read by everyone. This book is all about the dreams and the journy of life...
+                    </p>
+                </div>
+            </div>
+
+            <div class = "col-md-8 col-sm-8 col-xs-8" class = "reviewItem">
+                <div>
+                    <h3>
+                        Tariq Al-Moqbil
+                    </h3>
+                    <p>
+                        The Alchemist is the best book I've ever read! It is short and captivant... it has something that made me to think, to open my eyes about everything like an answer that I really need it. It is a book about following your dreams and how you can follow them and make them true.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class = "genreType">
+            <p class = "genreTypeTitle">
+                Add a Review
+            </p>
+        </div>
+
+        <h4>Let us know what you think!</h4>
+
+
+        <a href="http://127.0.0.1:8000/library/createreview/">
+            <button id = "reserve">
+                Review
+            </button>
+        </a>
+        
+
+
+
+
+
+
+
+
+       </body>
+
+       <footer>
+
+        <div class = "row" id = "footer">
+            <p id = "footerTitle"
+            class = "col-md-3 col-sm-3 col-xs-3">
+            Glasgow Library
+            </p>
+
+            <p id = "footerItem"
+            class = "col-md-2 col-sm-2 col-xs-2">
+            <a href = "http://127.0.0.1:8000/library/about/">
+                About Us
+            </a>
+            </p>
+
+            <p id = "footerItem"
+            class = "col-md-2 col-sm-2 col-xs-2">
+            Forum
+            </p>
+
+            <p id = "footerItem"
+            class = "col-md-2 col-sm-2 col-xs-2">
+            Contact Us
+            </p>
+
+            <p id = "footerTrademark"
+            class = "col-md-3 col-sm-3 col-xs-3">
+            Glasgow Library, Inc. 2021. We love our users!
+            </p>
+
+        </div>       
+    </footer>
+
+
+    </div>
+
+</html>

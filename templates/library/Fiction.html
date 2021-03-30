@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+
+    <head>
+
+        <!-- The link tag below adds bootstrap--> 
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+        crossorigin="anonymous">
+
+        <!-- The link tag below links the html file to the CSS file-->
+		<link rel="stylesheet" type="text/css" href="{% static 'CSS/Homepage.css' %}" />
+       
+        <title>
+            Fiction
+        </title>
+
+    </head>
+
+
+    <div id = "bigDiv">
+
+        <header class = "row" id = "topHeader">
+
+             <!-- This is the code for the first row of content. 
+            The classes for the below three divs split the screen
+            in to three equal pieces of four columns each using bootstrap-->
+            <div class = "col-md-4 col-sm-4 col-xs-4">
+            </div>
+
+            <div class = "col-md-4 col-sm-4 col-xs-4">
+                <h4 id = "heading">
+                     Glasgow Library
+                </h4>
+            </div>
+
+            <div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
+                <a href="http://127.0.0.1:8000/library/register/">
+                    <button id = "navLogInButton">Register</button>
+                </a>
+                <a href="http://127.0.0.1:8000/library/login/">
+                    <button id = "navRegisterButton">Log In</button>
+                </a>
+            </div>
+
+        </header>
+
+        <hr id = "divider">
+        <!-- The header for bestsellers and search etc -->
+        <header class = "row" id = "bottomHeader">
+
+            <div class = "col-md-2 col-sm-2 col-xs-2">
+                <a href = "http://127.0.0.1:8000/">
+                    <p class = "headerItems">
+                        BESTSELLERS
+                    </p>
+                </a>
+            </div>
+
+            <div class = "col-md-2 col-sm-2 col-xs-2">
+                <a href = "http://127.0.0.1:8000/library/fiction/">
+                    <p class = "headerItems">
+                        FICTION
+                    </p>
+                </a>
+            </div>
+
+            <div class = "col-md-2 col-sm-2 col-xs-2">
+                <a href = "http://127.0.0.1:8000/library/nonfiction/">
+                    <p class = "headerItems">
+                        NON-FICTION
+                    </p>
+                </a>
+            </div>
+
+            <div class = "col-md-2 col-sm-2 col-xs-2">
+                <a href = "http://127.0.0.1:8000/library/childrens/">
+                    <p class = "headerItems">
+                        CHILDREN'S
+                    </p>
+                </a>
+            </div>
+
+            <div class = "col-md-2 col-sm-2 col-xs-2">
+                <input type="text" placeholder="Search..">
+            </div>
+
+            <div class = "col-md-1 col-sm-1 col-xs-1">
+                <a href="http://127.0.0.1:8000/library/reservations/">
+                    <button id = "reservations">
+                        Reservations
+                    </button>
+                </a>
+            </div>
+
+            <div class = "col-md-1 col-sm-1 col-xs-1">
+                <a href="http://127.0.0.1:8000/library/wishlist/">
+                    <button id = "wishList">
+                        Wishlist
+                    </button>
+                </a>
+            </div>
+
+
+        </header>
+
+        <body>
+
+            <div>
+                <img src = "{% static 'images/F1.png' %}"
+                id = "homePic">
+            </div>
+
+            <div class = "genreType">
+                <p class = "genreTypeTitle">
+                    Recommended For You
+                </p>
+            </div>
+
+            <div class = "row" id = "genreOne">
+
+        
+                    <img src = "{% static 'images/P2.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                
+                    <img src = "{% static 'images/P3.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+           
+                    <img src = "{% static 'images/P4.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            
+                    <img src = "{% static 'images/P5.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+
+
+            </div>
+
+
+
+            <div class = "genreType">
+                <p class = "genreTypeTitle">
+                    Highest Rated Fiction Books
+                </p>
+            </div>
+
+            <div class = "row" id = "genreOne">
+
+        
+                    <img src = "{% static 'images/F2.png' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                
+                    <img src = "{% static 'images/P2.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+           
+                    <img src = "{% static 'images/F3.png' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            
+                    <img src = "{% static 'images/F4.png' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+
+
+            </div>
+
+
+
+            <div class = "genreType">
+                <p class = "genreTypeTitle">
+                    New Fiction Books
+                </p>
+            </div>
+
+            <div class = "row" id = "genreOne">
+
+        
+                    <img src = "{% static 'images/F5.png' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                
+                    <img src = "{% static 'images/F6.png' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+           
+                    <img src = "{% static 'images/F7.png' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            
+                    <img src = "{% static 'images/F8.png' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+
+
+            </div>
+
+
+
+            <div class = "genreType">
+                <p class = "genreTypeTitle">
+                    Our Best Picks
+                </p>
+            </div>
+
+            <div class = "row" id = "genreOne">
+
+        
+                    <img src = "{% static 'images/P14.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+                
+                    <img src = "{% static 'images/P15.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+           
+                    <img src = "{% static 'images/P16.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            
+                    <img src = "{% static 'images/P17.jpg' %}"
+                    class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+
+
+            </div>
+
+
+        </body>
+
+        <footer>
+
+            <div class = "row" id = "footer">
+                <p id = "footerTitle"
+                class = "col-md-3 col-sm-3 col-xs-3">
+                Glasgow Library
+                </p>
+
+                <p id = "footerItem"
+                class = "col-md-2 col-sm-2 col-xs-2">
+                <a href = "http://127.0.0.1:8000/library/about/">
+                    About Us
+                </a>
+                </p>
+
+                <p id = "footerItem"
+                class = "col-md-2 col-sm-2 col-xs-2">
+                Forum
+                </p>
+
+                <p id = "footerItem"
+                class = "col-md-2 col-sm-2 col-xs-2">
+                Contact Us
+                </p>
+
+                <p id = "footerTrademark"
+                class = "col-md-3 col-sm-3 col-xs-3">
+                Glasgow Library, Inc. 2021. We love our users!
+                </p>
+
+            </div>
+            </footer>        
+        </footer>
+
+
+
+
+
+    </div>
+
+
+
+</html>
