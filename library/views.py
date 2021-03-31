@@ -20,13 +20,26 @@ def BookPage(request):
 
     return render(request, 'library/bookpage.html')
 
+
 def CreateReview(request):
 
     return render(request, 'library/createreview.html')
 
+
 def Fiction(request):
 
     return render(request, 'library/fiction.html')
+
+
+def nonFiction(request):
+
+    return render(request, 'library/nonfiction.html')
+
+
+def Children(request):
+
+    return render(request, 'library/children.html')
+
 
 def LogIn(request):
 
