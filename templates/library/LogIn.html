@@ -5,16 +5,16 @@
 
     <head>
 
-        <!-- The link tag below adds bootstrap--> 
-        <link rel="stylesheet" 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+        <!-- The link tag below adds bootstrap-->
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
         crossorigin="anonymous">
 
         <!-- The link tag below links the html file to the CSS file-->
 		<link rel="stylesheet" type="text/css" href="{% static 'CSS/LogIn.css' %}" />
 
-        
+
         <title>
             Log In
         </title>
@@ -23,12 +23,14 @@
 
 
     <h1 id = "heading">
+
         Glasgow Library
     </h1>
 
+
     <div id = "logInBigDiv">
         <body>
-            
+
 
             <div id = "logInBox">
 
@@ -37,23 +39,16 @@
                 </h4>
 
                 <div>
-                    <input name = "username" 
-                    type = "text" 
-                    placeholder = "E-mail or Username"
-                    class = "fields">
+                  <form id="login_form" method="post" action="{% url 'library:login' %}">
+                    {% csrf_token %}
+                    Username: <input type="text" name="username" value="" size="50" />
+                    <br />
+                    Password: <input type="password" name="password" value="" size="50" />
+                    <br />
+                    <input type="submit" value="submit" />
+                  </form>
 
-                </div>
-                    
-                <div>
-                    <input name = "password"
-                    type = "password"
-                    placeholder = "Password"
-                    class = "fields">
-                </div>
-
-                <a href="">
-                    <button id = "navLogInButton">Log In</button>
-                </a>
+                  </div>
 
             </div>
 

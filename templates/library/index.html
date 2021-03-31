@@ -6,15 +6,15 @@
 
     <head>
 
-        <!-- The link tag below adds bootstrap--> 
-        <link rel="stylesheet" 
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+        <!-- The link tag below adds bootstrap-->
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
         crossorigin="anonymous">
 
         <!-- The link tag below links the html file to the CSS file-->
 		<link rel="stylesheet" type="text/css" href="{% static 'CSS/Homepage.css' %}" />
-        
+
         <title>
             Waterstones
         </title>
@@ -26,7 +26,7 @@
 
         <header class = "row" id = "topHeader">
 
-             <!-- This is the code for the first row of content. 
+             <!-- This is the code for the first row of content.
             The classes for the below three divs split the screen
             in to three equal pieces of four columns each using bootstrap-->
             <div class = "col-md-4 col-sm-4 col-xs-4">
@@ -37,6 +37,9 @@
                      Glasgow Library
                 </h4>
             </div>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'library:logout' %}">Logout</a></li>
+          {% else %}
 
             <div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
                 <a href="http://127.0.0.1:8000/library/register/">
@@ -46,7 +49,7 @@
                     <button id = "navRegisterButton">Log In</button>
                 </a>
             </div>
-
+{% endif %}
         </header>
 
         <hr id = "divider">
@@ -123,16 +126,16 @@
 
             <div class = "row" id = "genreOne">
 
-        
+
                     <img src = "{% static 'images/P2.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-                
+
                     <img src = "{% static 'images/P3.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
+
                     <img src = "{% static 'images/P4.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-            
+
                     <img src = "{% static 'images/P5.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
 
@@ -149,16 +152,16 @@
 
             <div class = "row" id = "genreOne">
 
-        
+
                     <img src = "{% static 'images/P6.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-                
+
                     <img src = "{% static 'images/P7.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
+
                     <img src = "{% static 'images/P8.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-            
+
                     <img src = "{% static 'images/P9.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
 
@@ -175,16 +178,16 @@
 
             <div class = "row" id = "genreOne">
 
-        
+
                     <img src = "{% static 'images/P10.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-                
+
                     <img src = "{% static 'images/P11.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
+
                     <img src = "{% static 'images/P12.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-            
+
                     <img src = "{% static 'images/P13.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
 
@@ -201,16 +204,16 @@
 
             <div class = "row" id = "genreOne">
 
-        
+
                     <img src = "{% static 'images/P14.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-                
+
                     <img src = "{% static 'images/P15.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-           
+
                     <img src = "{% static 'images/P16.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
-            
+
                     <img src = "{% static 'images/P17.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
 
@@ -249,7 +252,7 @@
                 </p>
 
             </div>
-            </footer>        
+            </footer>
         </footer>
 
 
