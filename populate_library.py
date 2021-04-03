@@ -15,30 +15,62 @@ def populate():
     # through each data structure, and add the data to our models.
     
     fiction_books = [
-        {'title': 'Book Fiction 1',
-         'url':'http://docs.python.org/3/tutorial/'},
-        {'title':'Book Fiction 2',
-         'url':'http://www.greenteapress.com/thinkpython/'},
-        {'title':'Book Fiction 3',
-         'url':'http://www.korokithakis.net/tutorials/python/'} ]
+        {'title':'The Girl with the Louding Voice',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'Girl, Woman, Other',
+         'url':'http://flask.pocoo.org'},
+        {'title':'The Guest List',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'Briefly Gorgeous',
+         'url':'http://flask.pocoo.org'},
+        {'title':'The Alchemist',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'Fake Accounts',
+         'url':'http://flask.pocoo.org'},
+        {'title':'Murder Club',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'Insatiable',
+         'url':'http://flask.pocoo.org'}]
     
     nonfiction_books = [
-         {'title':'Book NonFiction 1',
-         'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
-        {'title':'Book NonFiction 2',
-         'url':'http://www.djangorocks.com/'},
-        {'title':'Book NonFiction 3',
-         'url':'http://www.tangowithdjango.com/'} ]
+        {'title':'Becoming',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'The Boy, the Mole, the Fox, the Horse',
+         'url':'http://flask.pocoo.org'},
+        {'title':'House of Glass',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'Consensual Hex',
+         'url':'http://flask.pocoo.org'},
+        {'title':'Woman on the Edge of Time',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'How to Avoid a Climate Disaster',
+         'url':'http://flask.pocoo.org'},
+        {'title':'War and Peace',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'Destination Wedding',
+         'url':'http://flask.pocoo.org'}]
     
     children_books = [
-        {'title':'The Girl and the Dinosaur',
+        {'title':'Chain of Iron',
          'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'Kays Anatomy',
+         'url':'http://flask.pocoo.org'},
         {'title':'One Hundred Steps',
-         'url':'http://flask.pocoo.org'} ]
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'They Both Die at the End',
+         'url':'http://flask.pocoo.org'},
+        {'title':'FING',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'The Girl and the Dinosaur',
+         'url':'http://flask.pocoo.org'},
+        {'title':'Six of Crows',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'The Gilded Ones',
+         'url':'http://flask.pocoo.org'}]
     
     cats = {'FICTION': {'books': fiction_books},
             'NONFICTION': {'books': nonfiction_books},
-            "CHILDREN'S": {'books': children_books}}
+            "CHILDREN": {'books': children_books}}
     
     # If you want to add more categories or pages,
     # add them to the dictionaries above.
