@@ -16,7 +16,10 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'CSS/Homepage.css' %}" />
         
         <title>
-            Waterstones
+			{% block title_block %}
+				Waterstones
+			{% endblock %}
+
         </title>
 
     </head>
@@ -34,7 +37,7 @@
 
             <div class = "col-md-4 col-sm-4 col-xs-4">
                 <h4 id = "heading">
-                     Glasgow Library
+                 	Glasgow Library
                 </h4>
             </div>
 
@@ -64,7 +67,9 @@
             <div class = "col-md-2 col-sm-2 col-xs-2">
                 <a href = "http://127.0.0.1:8000/library/fiction/">
                     <p class = "headerItems">
-                        FICTION
+			 			{% for genre in genres|slice:"2:3" %} 
+							<a href="/library/{{ genre.slug }}/">{{ genre.name }}</a> 
+						{% endfor %} 
                     </p>
                 </a>
             </div>
@@ -72,7 +77,9 @@
             <div class = "col-md-2 col-sm-2 col-xs-2">
                 <a href = "http://127.0.0.1:8000/library/nonfiction/">
                     <p class = "headerItems">
-                        NON-FICTION
+			 			{% for genre in genres|slice:":1" %} 
+							<a href="/library/{{ genre.slug }}/">{{ genre.name }}</a> 
+						{% endfor %}
                     </p>
                 </a>
             </div>
@@ -80,7 +87,9 @@
             <div class = "col-md-2 col-sm-2 col-xs-2">
                 <a href = "http://127.0.0.1:8000/library/children/">
                     <p class = "headerItems">
-                        CHILDREN'S
+			 			{% for genre in genres|slice:"1:2" %} 
+							<a href="/library/{{ genre.slug }}/">{{ genre.name }}</a> 
+						{% endfor %}
                     </p>
                 </a>
             </div>
@@ -108,7 +117,12 @@
 
         </header>
 
+
+		{% block body_block %} 
         <body>
+			
+				
+			
 
             <div>
 				<img src="{% static 'images/P1.jpg' %}"
@@ -124,21 +138,21 @@
             <div class = "row" id = "genreOne">
 
         
-                    <img src = "{% static 'images/P2.jpg' %}"
+                    <img src = "{% static 'images/F2.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
                 
-                    <img src = "{% static 'images/P3.jpg' %}"
+                    <img src = "{% static 'images/F3.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
            
-                    <img src = "{% static 'images/P4.jpg' %}"
+                    <img src = "{% static 'images/F4.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
             
-                    <img src = "{% static 'images/P5.jpg' %}"
+                    <img src = "{% static 'images/F5.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+					
 
 
             </div>
-
 
 
             <div class = "genreType">
@@ -150,16 +164,16 @@
             <div class = "row" id = "genreOne">
 
         
-                    <img src = "{% static 'images/P6.jpg' %}"
+                    <img src = "{% static 'images/N2.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
                 
-                    <img src = "{% static 'images/P7.jpg' %}"
+                    <img src = "{% static 'images/N3.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
            
-                    <img src = "{% static 'images/P8.jpg' %}"
+                    <img src = "{% static 'images/N4.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
             
-                    <img src = "{% static 'images/P9.jpg' %}"
+                    <img src = "{% static 'images/N5.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
 
 
@@ -176,16 +190,16 @@
             <div class = "row" id = "genreOne">
 
         
-                    <img src = "{% static 'images/P10.jpg' %}"
+                    <img src = "{% static 'images/C2.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
                 
-                    <img src = "{% static 'images/P11.jpg' %}"
+                    <img src = "{% static 'images/C3.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
            
-                    <img src = "{% static 'images/P12.jpg' %}"
+                    <img src = "{% static 'images/C4.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
             
-                    <img src = "{% static 'images/P13.jpg' %}"
+                    <img src = "{% static 'images/C5.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
 
 
@@ -202,23 +216,37 @@
             <div class = "row" id = "genreOne">
 
         
-                    <img src = "{% static 'images/P14.jpg' %}"
+                    <img src = "{% static 'images/F5.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
                 
-                    <img src = "{% static 'images/P15.jpg' %}"
+                    <img src = "{% static 'images/N5.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
            
-                    <img src = "{% static 'images/P16.jpg' %}"
+                    <img src = "{% static 'images/F6.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
             
-                    <img src = "{% static 'images/P17.jpg' %}"
+                    <img src = "{% static 'images/N7.jpg' %}"
                     class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
 
 
             </div>
-
-
+       <hr id = "divider">
+	   
+	   <!--
+	   <div>
+		   {% if genres %}
+		   <ul>
+			   {% for genre in genres %} 
+				   <a href="/library/{{ genre.slug }}/">{{ genre.name }}</a> 
+			   {% endfor %} 
+		   </ul> 
+		   {% else %}
+		   <strong>There are no genres present.</strong> {% endif %}
+	   </div>
+		   -->
+		   
         </body>
+		{% endblock %}
 
         <footer>
 
@@ -251,12 +279,10 @@
                 </p>
 
             </div>
-            </footer>        
+			
+            </footer>
+			        
         </footer>
-
-
-
-
 
     </div>
 

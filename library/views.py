@@ -1,14 +1,31 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from library.models import Genre, Book
 
 def index(request):
-    # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage matches to {{ boldmessage }} in the template!
-    # context_dict = {'boldmessage': 'This is the bold message'}
-    # Return a rendered response to send to the client.
-    # We make use of the shortcut function to make our lives easier.
-    # Note that the first parameter is the template we wish to use.
-    return render(request, 'library/index.html') #, context=context_dict
+
+    genre_list = Genre.objects.all()
+    context_dict = {}
+    context_dict['genres'] = genre_list
+    return render(request, 'library/index.html', context=context_dict) 
+
+def show_genre(request, genre_name_slug):
+
+    context_dict = {}
+    
+    try:
+        genre = Genre.objects.get(slug=genre_name_slug)
+        books = Book.objects.filter(genre=genre)
+
+        context_dict['books'] = books
+        context_dict['genre'] = genre
+
+    except Genre.DoesNotExist:
+        context_dict['genre'] = None
+        context_dict['books'] = None
+
+    return render(request, 'library/genre.html', context=context_dict)
+
 
 
 def About(request):
@@ -25,7 +42,7 @@ def CreateReview(request):
 
     return render(request, 'library/createreview.html')
 
-
+'''
 def Fiction(request):
 
     return render(request, 'library/fiction.html')
@@ -39,7 +56,7 @@ def nonFiction(request):
 def Children(request):
 
     return render(request, 'library/children.html')
-
+'''
 
 def LogIn(request):
 

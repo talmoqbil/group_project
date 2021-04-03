@@ -31,14 +31,14 @@ def populate():
          'url':'http://www.tangowithdjango.com/'} ]
     
     children_books = [
-        {'title':'Book Children 1',
-         'url':'http://bottlepy.org/docs/dev/'},
-        {'title':'Book Children 2',
+        {'title':'The Girl and the Dinosaur',
+         'url':'http://127.0.0.1:8000/library/bookpage/'},
+        {'title':'One Hundred Steps',
          'url':'http://flask.pocoo.org'} ]
     
-    cats = {'Fiction': {'books': fiction_books},
-            'Nonfiction': {'books': nonfiction_books},
-            'Children': {'books': children_books} }
+    cats = {'FICTION': {'books': fiction_books},
+            'NONFICTION': {'books': nonfiction_books},
+            "CHILDREN'S": {'books': children_books}}
     
     # If you want to add more categories or pages,
     # add them to the dictionaries above.
@@ -48,6 +48,7 @@ def populate():
         c = add_genre(cat)
         for p in cat_data['books']:
             add_book(c, p['title'], p['url'])
+            
 
     # Print out the categories we have added.
     for c in Genre.objects.all():
@@ -68,5 +69,5 @@ def add_genre(name):
 
 #Startexecutionhere!
 if __name__=='__main__':
-    print('Starting Rango population script...')
+    print('Starting Library population script...')
     populate()
