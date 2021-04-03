@@ -40,15 +40,18 @@
                  	Glasgow Library
                 </h4>
             </div>
-
-            <div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
+          	{% if user.is_authenticated %}
+          		<li><a href="{% url 'library:logout' %}">Logout</a></li>
+          	{% else %}
+        		<div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
                 <a href="http://127.0.0.1:8000/library/register/">
-                    <button id = "navLogInButton">Register</button>
+                	<button id = "navLogInButton">Register</button>
                 </a>
                 <a href="http://127.0.0.1:8000/library/login/">
                     <button id = "navRegisterButton">Log In</button>
                 </a>
-            </div>
+            	</div>
+			{% endif %}
 
         </header>
 
