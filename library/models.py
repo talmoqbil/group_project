@@ -1,6 +1,5 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-from django.contrib.auth.models import User
 
 class Genre(models.Model):
     name = models.CharField(max_length=128, unique=True)
@@ -29,9 +28,3 @@ class Book(models.Model):
         return self.title
 
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    picture = models.ImageField(upload_to='profile_images', blank=True)
-
-    def __Str__ (self):
-        return self.user.username

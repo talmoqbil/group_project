@@ -1,6 +1,5 @@
 from django.contrib import admin
 from library.models import Genre, Book
-from library.models import UserProfile
 
 # Add in this class to customise the Admin Interface
 class GenreAdmin(admin.ModelAdmin):
@@ -12,4 +11,3 @@ admin.site.register(Genre, GenreAdmin)
 
 # admin.site.register(Genre)
 admin.site.register(Book)
-admin.site.register(UserProfile)

@@ -18,6 +18,5 @@ urlpatterns = [
     path('reservations/', views.Reservations, name='reservations'),
     path('wishlist/', views.WishList, name='wishlist'),
     path('<slug:genre_name_slug>/',views.show_genre, name='show_genre'),
-    path('logout/', views.LogOut, name='logout'),
 
 ]
