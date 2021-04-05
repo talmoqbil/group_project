@@ -94,11 +94,12 @@ def add_genre(name):
     c.save()
     return c
 
-def add_bookpage(cat,title,url,views=0):
+def add_bookpage(cat,title,url,views=0, likes=0):
     temp = add_book(cat, title,url, views=0)
     b = Bookpage.objects.get_or_create(name=title)[0]
     b.book = temp
     b.name=title
+    b.likes = likes
     b.save()
     return b
 
