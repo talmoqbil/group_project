@@ -16,7 +16,9 @@
 		
        
         <title>
-            Book Title
+			{% block title_block %}
+				Waterstones
+			{% endblock %}
         </title>
 
     </head>
@@ -110,7 +112,7 @@
 
        
 
-
+	{% block body_block %} 
     <body>
 
         <div class = "row" id = "book">
@@ -142,12 +144,6 @@
             </div>
 
         </div>
-
-           
-
-
-
-
 
 
         <div class = "genreType">
@@ -241,16 +237,14 @@
                 Review
             </button>
         </a>
-        
-
-
-
-
-
-
 
 
        </body>
+	   
+	   {% endblock %}
+	   
+	   
+	   
 
        <footer>
 

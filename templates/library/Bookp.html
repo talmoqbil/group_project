@@ -1,0 +1,18 @@
+{% extends 'library/BookPage.html' %}
+{% load staticfiles %}
+
+{% block title_block %} 
+	{% if genre %}
+		{{ genre.name }}
+    {% else %}
+        Unknown genre
+    {% endif %}
+{% endblock %}
+
+
+
+{%block body_block%}
+
+<!-- loop through the genre, then books, then bookpages. Then just copy past the bookPage.html for every book -->
+	
+{% endblock %}

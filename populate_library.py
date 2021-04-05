@@ -4,7 +4,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'group_project.settings')
 
 import django
 django.setup()
-from library.models import Genre,Book
+from library.models import Genre,Book, Bookpage
 
 
 def populate():
@@ -72,17 +72,12 @@ def populate():
             'NONFICTION': {'books': nonfiction_books},
             "CHILDREN": {'books': children_books}}
     
-    # If you want to add more categories or pages,
-    # add them to the dictionaries above.
-    # The code below goes through the cats dictionary, then adds each category
-     # and then adds all the associated pages for that category.
     for cat, cat_data in cats.items():
         c = add_genre(cat)
         for p in cat_data['books']:
-            add_book(c, p['title'], p['url'])
+            add_bookpage(c, p['title'],p['url'])
             
 
-    # Print out the categories we have added.
     for c in Genre.objects.all():
         for p in Book.objects.filter(genre=c):
             print(f'- {c}: {p}')
@@ -98,6 +93,17 @@ def add_genre(name):
     c = Genre.objects.get_or_create(name=name)[0]
     c.save()
     return c
+
+def add_bookpage(cat,title,url,views=0):
+    temp = add_book(cat, title,url, views=0)
+    b = Bookpage.objects.get_or_create(name=title)[0]
+    b.book = temp
+    b.name=title
+    b.save()
+    return b
+
+
+
 
 #Startexecutionhere!
 if __name__=='__main__':

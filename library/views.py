@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from library.models import Genre, Book
+from library.models import Genre, Book, Bookpage
 
 
 def index(request):
@@ -28,6 +28,32 @@ def show_genre(request, genre_name_slug):
     return render(request, 'library/genre.html', context=context_dict)
 
 
+
+def Bookp(request, genre_name_slug):
+    context_dict = {}
+    
+    try:
+        genre = Genre.objects.get(slug=genre_name_slug)
+        books = Book.objects.filter(genre=genre)
+        bookpage = Bookpage.objects.all
+        
+        context_dict['books'] = books
+        context_dict['genre'] = genre
+        context_dict['bookpage'] = bookpage
+
+    except Genre.DoesNotExist:
+        context_dict['genre'] = None
+        context_dict['books'] = None
+        context_dict['bookpage'] = None
+
+    return render(request, 'library/Bookp.html',context=context_dict)
+
+
+
+
+
+
+
 def About(request):
 
     return render(request, 'library/about.html')
@@ -42,21 +68,6 @@ def CreateReview(request):
 
     return render(request, 'library/createreview.html')
 
-'''
-def Fiction(request):
-
-    return render(request, 'library/fiction.html')
-
-
-def nonFiction(request):
-
-    return render(request, 'library/nonfiction.html')
-
-
-def Children(request):
-
-    return render(request, 'library/children.html')
-'''
 
 def LogIn(request):
 

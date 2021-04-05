@@ -24,7 +24,14 @@ class Book(models.Model):
     url = models.URLField()
     views = models.IntegerField(default=0)
 
+
     def __str__(self):
         return self.title
 
+class Bookpage(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
+    name = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.name
 
