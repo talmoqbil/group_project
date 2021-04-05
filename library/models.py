@@ -31,6 +31,8 @@ class Book(models.Model):
 class Bookpage(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=128)
+    copiesAvailable = models.IntegerField(default = 0)
+    likes = models.IntegerField(default = 0)
 
     def __str__(self):
         return self.name
