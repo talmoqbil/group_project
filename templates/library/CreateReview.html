@@ -2,75 +2,407 @@
 {% load staticfiles %}
 
 <html>
+
     <head>
 
-     <!-- The link tag below adds bootstrap--> 
-     <link rel="stylesheet" 
-     href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
-     crossorigin="anonymous">
-
-     <!-- The link tag below links the html file to the CSS file-->
-	<link rel="stylesheet" type="text/css" href="{% static 'CSS/CreateReview.css' %}" />
-
-     
-    <meta charset="utf-8"> 
-    <title>Create a Review</title>
+        <!-- The link tag below adds bootstrap--> 
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+        <!-- The link tag below links the html file to the CSS file-->
+		<link rel="stylesheet" type="text/css" href="{% static 'CSS/BookPage.css' %}" />
+		
+       
+        <title>
+            Book Title
+        </title>
 
     </head>
 
+
+    <div id = "bigDiv">
+
+        <header class = "row" id = "topHeader">
+
+            <!-- This is the code for the first row of content. 
+           The classes for the below three divs split the screen
+           in to three equal pieces of four columns each using bootstrap-->
+           <div class = "col-md-4 col-sm-4 col-xs-4">
+           </div>
+
+           <div class = "col-md-4 col-sm-4 col-xs-4">
+               <h4 id = "heading">
+                    Glasgow Library
+               </h4>
+           </div>
+
+           {% if user.is_authenticated %}
+           Welcome {{ user.username }}
+           <div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
+               <a href="http://127.0.0.1:8000/library/register/">
+                   <button id = "navLogInButton" >Signout</button>
+                   </a>
+           {% else %}
+           
+               <div class = "col-md-4 col-sm-4 col-xs-4" id = "logInDiv">
+               <a href="http://127.0.0.1:8000/library/register/">
+                   <button id = "navLogInButton">Register</button>
+               </a>
+               <a href="http://127.0.0.1:8000/library/login/">
+                   <button id = "navRegisterButton">Log In</button>
+               </a>
+               </div>
+               {% endif %}
+       </header>
+
+       <hr id = "divider">
+       <!-- The header for bestsellers and search etc -->
+       <header class = "row" id = "bottomHeader">
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/">
+                   <p class = "headerItems">
+                       BESTSELLERS
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/library/fiction/">
+                   <p class = "headerItems">
+                       FICTION
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/library/nonfiction/">
+                   <p class = "headerItems">
+                       NON-FICTION
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <a href = "http://127.0.0.1:8000/library/children/">
+                   <p class = "headerItems">
+                       CHILDREN
+                   </p>
+               </a>
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+               <input type="text" placeholder="Search..">
+           </div>
+
+           <div class = "col-md-2 col-sm-2 col-xs-2">
+            <a href="{% url 'library:Favourites_List' %}">
+                <button id = "reservations">
+                    WishList
+                </button>
+            </a>
+        </div>
+
+
+
+       </header>
+
+       
+
+
     <body>
-        <h1 id = "heading">
-            Glasgow Library
-        </h1>
 
-    
-    <div id = "reviewBox">
-    <form>
-        <h4>Make a review</h4>
-        <fieldset class="rating">
-            <legend>Rating</legend>
-      
-            <input id="demo-1" type="radio" name="demo" value="1"> 
-            <label for="demo-1">1 star</label>
-            <input id="demo-2" type="radio" name="demo" value="2">
-            <label for="demo-2">2 stars</label>
-            <input id="demo-3" type="radio" name="demo" value="3">
-            <label for="demo-3">3 stars</label>
-            <input id="demo-4" type="radio" name="demo" value="4">
-            <label for="demo-4">4 stars</label>
-            <input id="demo-5" type="radio" name="demo" value="5">
-            <label for="demo-5">5 stars</label>
-        
-            <div class="stars">
-                <label for="demo-1" aria-label="1 star" title="1 star"></label>
-                <label for="demo-2" aria-label="2 stars" title="2 stars"></label>
-                <label for="demo-3" aria-label="3 stars" title="3 stars"></label>
-                <label for="demo-4" aria-label="4 stars" title="4 stars"></label>
-                <label for="demo-5" aria-label="5 stars" title="5 stars"></label>   
+        <div class = "row" id = "book">
+
+            <div class = "col-md-6 col-sm-6 col-xs-6">
+               {% if book.title == "Kays Anatomy" %}
+               <img src = "{% static 'images/C3.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "Six of Crows" %}
+                <img src = "{% static 'images/C8.JPG' %}" id = "bookPic">
+                 {% endif %}
+
+                {% if book.title == "The Girl and the Dinosaur" %}
+                <img src = "{% static 'images/C7.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "FING" %}
+                <img src = "{% static 'images/C6.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "They Both Die at the End" %}
+                <img src = "{% static 'images/C5.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "One Hundred Steps" %}
+                <img src = "{% static 'images/C4.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "Chain of Iron" %}
+                <img src = "{% static 'images/C2.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "Destination Wedding" %}
+                <img src = "{% static 'images/C3.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "War and Peace" %}
+                <img src = "{% static 'images/N8.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "How to Avoid a Climate Disaster" %}
+                <img src = "{% static 'images/N7.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "Woman on the Edge of Time" %}
+                <img src = "{% static 'images/N6.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "Consensual Hex" %}
+                <img src = "{% static 'images/N5.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "House of Glass" %}
+                <img src = "{% static 'images/N4.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "The Boy, the Mole, the Fox, the Horse" %}
+                <img src = "{% static 'images/N3.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "Becoming" %}
+                <img src = "{% static 'images/N2.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "Insatiable" %}
+                <img src = "{% static 'images/F9.JPG' %}" id = "bookPic">
+                {% endif %}
+
+                {% if book.title == "Murder Club" %}
+                <img src = "{% static 'images/F8.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "Fake Accounts" %}
+                <img src = "{% static 'images/F7.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "The Alchemist" %}
+                <img src = "{% static 'images/F6.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "Briefly Gorgeous" %}
+                <img src = "{% static 'images/F5.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "The Guest List" %}
+                <img src = "{% static 'images/F4.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "Girl, Woman, Other" %}
+                <img src = "{% static 'images/F3.JPG' %}" id = "bookPic">
+
+                {% endif %}
+
+                {% if book.title == "The Girl with the Louding Voice" %}
+                <img src = "{% static 'images/F2.JPG' %}" id = "bookPic">
+                {% endif %}
+          
             </div>
+            <hr>
+            <div class = "col-md-6 col-sm-6 col-xs-6" id = "book2">
+                <h1 class = "bookDesc">{{ book.title }}</h1>
+                <h2 class = "bookDesc">Genres: {{ book.genre}}</h2>
+                <h2 class = "bookDesc">Likes: {{ book.likes }}</h2>
+                <h2 class = "bookDesc">Copies Available: {{ book.quantity }}</h2>
+                <div id = "favorites"> 
+                    {% if is_favorite %}
+                    <a href="{% url 'library:favourites' book.id %}">
+                        <i class="fas fa-heart fa-lg"></i>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'library:favourites' book.id %}">
+                        <i class="far fa-heart fa-lg"></i>
+                        <hr>
+                    </a>
+                    {% endif %}  
+                    <a href = "{% url 'library:Favourites_List' %}"><button id = "wish">Wishlist </button> </a>
+
+                </div>
         
-        </fieldset>
+                    
 
-        <script>
-            (function(){
-                var rating = document.querySelector('.rating');
-                var handle = document.getElementById('toggle-rating');
-                handle.onchange = function(event) {
-                    rating.classList.toggle('rating', handle.checked);
-                };
-            }());
-        </script>
-        <input name = "Review" 
-        type = "text" 
-        placeholder = "Comments"
-        class = "fields">
+                    
 
-        <a href="">
-            <button id = "submitButton">Submit</button>
-        </a>
-    </form>
+
+            </div>
+
+        </div>
+
+           
+
+
+
+
+
+        <div class = "genreType">
+            <p class = "genreTypeTitle">
+            Other Books
+            </p>
+            </div>
+            
+  
+            {% if book.title == "Becoming" or book.title == "The Boy, the Mole, the Fox, the Horse" or book.title == "House of Glass" or book.title == "Consensual Hex" or book.title == "Woman on the Edge of Time" or book.title == "How to Avoid a Climate Disaster " or book.title == "War and Peace" or book.title == "Destination Wedding" %}
+            <div class = "row" id = "genreOne">
+            <img src = "{% static 'images/F2.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/C3.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/F4.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/C5.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            </div>
+            <a href="http://127.0.0.1:8000/library/bookp/1"> The Girl with the Louding Voice</a>
+            <a href="http://127.0.0.1:8000/library/bookp/18"> Kay's Anatomy</a>
+            <a href="http://127.0.0.1:8000/library/bookp/3"> The Guest List</a>
+            <a href="http://127.0.0.1:8000/library/bookp/20"> They Both Die at the End</a>
+            {% endif %}
+            
+            {% if book.title == "Insatiable" or book.title == "Murder Club" or book.title == "Fake Accounts" or book.title == "The Alchemist" or book.title == "Briefly Gorgeous" or book.title == "The Guest List" or book.title == "Girl, Woman, Other " or book.title == "The Girl with the Louding Voice" %}
+            <div class = "row" id = "genreOne">
+            <img src = "{% static 'images/C2.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/N3.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/C4.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/N5.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            </div>
+            <a href="http://127.0.0.1:8000/library/bookp/17"> Chain of Iron</a>
+            <a href="http://127.0.0.1:8000/library/bookp/10"> The Boy, the Mole, the Fox, the Horse</a>
+            <a href="http://127.0.0.1:8000/library/bookp/19"> One Hundred Steps</a>
+            <a href="http://127.0.0.1:8000/library/bookp/12"> Concensual Hex</a>
+            {% endif %}
+            
+
+            
+            {% if book.title == "Chain of Iron" or book.title == "Kays Anatomy" or book.title == "One Hundred Steps" or book.title == "They Both Die at the End" or book.title == "FING" or book.title == "The Girl and the Dinosaur" or book.title == "Six of Crows" or book.title == "The Gilded Ones" %}
+            <div class = "row" id = "genreOne">
+            <img src = "{% static 'images/N6.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/F7.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/N8.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            <img src = "{% static 'images/F9.jpg' %}"
+            class = "col-md-3 col-sm-3 col-xs-3" id = "genrePic">
+            </div>
+            <a href="http://127.0.0.1:8000/library/bookp/13"> Women on the Edge of Time</a>
+            <a href="http://127.0.0.1:8000/library/bookp/6"> Fake Accounts</a>
+            <a href="http://127.0.0.1:8000/library/bookp/15"> War and Peace</a>
+            <a href="http://127.0.0.1:8000/library/bookp/8"> Insatiable</a>
+            {% endif %}
+            
+
+
+
+
+        <div class = "genreType">
+            <p class = "genreTypeTitle">
+                Add a Review
+            </p>
+        </div>
+
+        <h4>Let us know what you think!</h4>
+
+
+
+
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center">Add Review</h3>
+                <form action="{% url 'library:add_review' book.id %}" method="POST">
+                    {% csrf_token %}
+                    <label for="comment">Review</label>
+                    <textarea name="comment" id="comment" cols="30" rows="5" class="form-control"></textarea>
+    
+                    <label for="rating">Rating</label>
+                    <input type="text" name="rating" class="form-control">
+
+                    <br>
+                    <input type="submit" class="btn btn-danger" value="Add Review">
+                </form>
+            </div>
+         </div>
+         <div class="card">
+             <div class="card-body"></div>
+                {% for review in reviews %}
+                    <div class="card">
+                        <div class="card-body" style="background-color: green;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4 class="text-left"> {{ review.user.username }}</h4>
+                                    <h5> {{ review.rating }} </h5>
+                                </div>
+                                <div class="col-md-9">
+                                    <p> {{ review.comment }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+         </div>
+         
+            
+         </div>
+
+
+
+
+       </body>
+
+       <footer>
+
+        <div class = "row" id = "footer">
+            <p id = "footerTitle"
+            class = "col-md-3 col-sm-3 col-xs-3">
+            Glasgow Library
+            </p>
+
+            <p id = "footerItem"
+            class = "col-md-2 col-sm-2 col-xs-2">
+            <a href = "http://127.0.0.1:8000/library/about/">
+                About Us
+            </a>
+            </p>
+
+
+            <p id = "footerTrademark"
+            class = "col-md-3 col-sm-3 col-xs-3">
+            Glasgow Library, Inc. 2021. We love our users!
+            </p>
+
+        </div>
+    </footer>
+
+
     </div>
-    </body>
 
 </html>
