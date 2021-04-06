@@ -1,0 +1,65 @@
+{% extends 'library/About.html' %}
+{% load staticfiles %}
+
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/About.css' %}">
+<div class="container">
+
+  <form action="action_page.php" class = "needs-validation" novalidate>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom01">First name</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Adam" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom02">Last name</label>
+      <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Smith" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+    	  <label for="country">Town</label>
+		  <select class="custom-select">
+			  <option selected>Town</option>
+			  <option value="place1">Finnieston</option>
+			  <option value="place2">Partick</option>
+			  <option value="place3">Thornwood</option>
+			  <option value="place4">Dowanhill</option>
+			  <option value="place4">Glasgow Central</option>
+			  <option value="place4">Hyndland</option>
+			  <option value="place4">Hamiltonhill</option>
+			  <option value="place4">Kelvinhaugh</option>
+		  </select>
+        </div>
+      </div>
+
+    <div class="form-row">
+    	<div class="col-md-6 mb-3">
+    	 	<label for="subject">Subject</label>
+    	 	<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+       	</div>
+   	</div>
+
+
+    <div class="form-row">
+   	 	<div class="col-md-4 mb-3">
+      		<input type="submit" value="Submit">
+      	</div>
+   	</div>
+
+
+
+
+  </form>
+</div>
+
+
+
+{% endblock %}
